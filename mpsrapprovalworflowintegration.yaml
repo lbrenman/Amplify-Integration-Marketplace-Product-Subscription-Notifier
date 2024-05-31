@@ -1,0 +1,55 @@
+group: management
+apiVersion: v1alpha1
+kind: Integration
+title: Integrations for Marketplace Product Subscription Approvals
+name: mpsrintegration
+spec:
+  description: This is a group of resources to be used for marketplace subscription approval workflows
+---
+name: mpsrintegration-secret
+kind: Secret
+apiVersion: v1alpha1
+title: Secret for Marketplace Product Subscription Approvals integration webhook
+metadata:
+  scope:
+    kind: Integration
+    name: mpsrintegration
+spec:
+    data:
+      Authorization: Basic YWJjZDoxMjM0
+---
+group: management
+apiVersion: v1alpha1
+kind: Webhook
+title: Webhook for Marketplace Product Subscription Approvals integration
+name: mpsrintegration-webhook
+metadata:
+  scope:
+    kind: Integration
+    name: mpsrintegration
+spec:
+  enabled: true
+  url: https://<<YOUR INTEGRATION URL>>/mpsrwebhookhandler
+  auth:
+    secret:
+      name: mpsrintegration-secret
+      key: Authorization
+---
+group: management
+apiVersion: v1alpha1
+kind: ResourceHook
+title: Resource Hook for Marketplace Product Subscription Approvals integration
+name: mpsrintegration-resourcehook
+metadata:
+  scope:
+    kind: Integration
+    name: mpsrintegration
+spec:
+  triggers:
+    - group: catalog
+      kind: Subscription
+      name: "*"
+      type:
+      - updated
+  webhooks:
+    - mpsrintegration-webhook
