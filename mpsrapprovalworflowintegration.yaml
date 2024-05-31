@@ -16,7 +16,7 @@ metadata:
     name: mpsrintegration
 spec:
     data:
-      Authorization: Basic YWJjZDoxMjM0
+      Authorization: Basic <<Base64 Encoded username:password for the HTTP/S Server for the Integration>>
 ---
 group: management
 apiVersion: v1alpha1
