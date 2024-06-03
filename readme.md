@@ -12,7 +12,7 @@ Once setup and configured properly, the integration performs the following actio
 ![Image](https://i.imgur.com/nyC701A.png)
 ![Image](https://i.imgur.com/PPtTppG.png)
 * Sends an email to the subscriber via SMTP when their request is approved or rejected
-![Image](https://i.imgur.com/ujKQlic.png)
+![Image](https://i.imgur.com/pnyOvNy.png)
 
 ## Amplify Integration Setup
 
