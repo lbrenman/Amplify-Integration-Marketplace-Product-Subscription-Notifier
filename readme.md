@@ -35,7 +35,6 @@ Follow these steps to setup the integration:
 ![Image](https://i.imgur.com/b2vGMxo.png)
 * Right click on the following variables and make sure that they are set properly for your environment:
   * `AmplifyCentralBaseAddress` - base address of your Amplify Central environment (e.g. https://apicentral.axway.com)
-  * `MarketplaceBaseURL` - base address of your Marketplace (e.g. https://lbrenman.marketplace.us.axway.com)
   * `EmailMessageSubject` - the email subject for the emails sent to the Subscription Approver (e.g. Marketplace product subscription status update)
   * `EmailMessageFromEmailAddress` - the email reply to email address for the emails sent to the Subscription Approver (e.g. no-reply@axway.com)
 * Enable the integration and get the URL as you will need this in the next section
