@@ -1,0 +1,58 @@
+group: management
+apiVersion: v1alpha1
+kind: Integration
+title: Integrations for Marketplace Product Resource Asset Request Approvals
+name: mprarintegration
+spec:
+  description: This is a group of resources to be used for marketplace product resource Asset Request approval workflows
+---
+name: mprarintegration-secret
+kind: Secret
+apiVersion: v1alpha1
+title: Secret for Marketplace Product Resource Asset Request Approvals integration webhook
+metadata:
+  scope:
+    kind: Integration
+    name: mprarintegration
+spec:
+    data:
+      Authorization: Basic <<Base64 Encoded username:password for the HTTP/S Server for the Integration>>
+---
+group: management
+apiVersion: v1alpha1
+kind: Webhook
+title: Webhook for Marketplace Product Resource Asset Request Approvals integration
+name: mprarintegration-webhook
+metadata:
+  scope:
+    kind: Integration
+    name: mprarintegration
+spec:
+  enabled: true
+  url: https://<<YOUR INTEGRATION URL>>/mprarwebhookhandler
+  auth:
+    secret:
+      name: mprarintegration-secret
+      key: Authorization
+---
+group: management
+apiVersion: v1alpha1
+kind: ResourceHook
+title: Resource Hook for Marketplace Product Resource Asset Request Approvals integration
+name: mprarintegration-resourcehook
+metadata:
+  scope:
+    kind: Integration
+    name: mprarintegration
+spec:
+  triggers:
+    - group: catalog
+      kind: AssetRequest
+      name: "*"
+      scope:
+        kind: Application
+        name: "*"
+      type:
+      - updated
+  webhooks:
+    - mprarintegration-webhook
