@@ -27,6 +27,10 @@ Once setup and configured properly, the Product Subscription Request Notifier in
 
   ![Image](https://i.imgur.com/pnyOvNy.png)
 
+A demo video is below:
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/30dRyw5iN-U)](https://youtu.be/30dRyw5iN-U)
+
 Once setup and configured properly, the Product Access Request Notifier integration performs the following actions:
 
 * Sends a message to MS Teams via an HTTP/S POST when a marketplace product resource access requested is created, approved or rejected. This is useful for a subscription approval team so they can be aware of requests
@@ -44,6 +48,10 @@ Once setup and configured properly, the Product Access Request Notifier integrat
 * Sends an email to the subscriber via SMTP when their request is approved or rejected
 
   ![Image](https://i.imgur.com/Z1LWbS6.png)
+
+A demo video is below:
+
+[![](https://markdown-videos-api.jorgenkh.no/youtube/W9ooSYkVAyE)](https://youtu.be/W9ooSYkVAyE)
 
 ## Amplify Integration Setup
 
